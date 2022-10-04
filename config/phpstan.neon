@@ -1,0 +1,13 @@
+parameters:
+	level: max
+	paths:
+		- ./../src
+		- ./../tests
+		- ./../config
+	ignoreErrors:
+	    - '#^Interface must be located in "Contract" namespace$#'
+	ergebnis:
+	    classesAllowedToBeExtended:
+	        - Exception
+includes:
+    - ./../vendor/symplify/phpstan-rules/config/static-rules.neon

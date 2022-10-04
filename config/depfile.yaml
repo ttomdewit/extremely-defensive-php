@@ -1,0 +1,41 @@
+parameters:
+  paths:
+    - ./../src
+  exclude_files:
+    - '#.*Test.*#'
+  layers:
+    - name: Domain
+      collectors:
+        - type: className
+          regex: .*\\Domain\\.*
+    - name: Application
+      collectors:
+        - type: className
+          regex: .*\\Application\\.*
+    - name: Infrastructure
+      collectors:
+        - type: className
+          regex: .*\\Infrastructure\\.*
+    - name: UserInterface
+      collectors:
+        - type: className
+          regex: .*\\UserInterface\\.*
+    - name: Ramsey
+      collectors:
+        - type: className
+          regex: ^(Ramsey)\\.*
+  ruleset:
+    Domain:
+      - Ramsey
+    Application:
+      - Domain
+      - Ramsey
+    Infrastructure:
+      - Domain
+      - Application
+      - Ramsey
+    UserInterface:
+      - Domain
+      - Application
+      - Infrastructure
+      - Ramsey

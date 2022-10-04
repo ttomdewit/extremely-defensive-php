@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+         bootstrap="./../vendor/autoload.php"
+         cacheResultFile="./../.build/.phpunit.cache/test-results"
+         executionOrder="depends,defects"
+         forceCoversAnnotation="false"
+         beStrictAboutCoversAnnotation="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         convertDeprecationsToExceptions="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         verbose="true">
+    <testsuites>
+        <testsuite name="Functional">
+            <directory>./../tests/Functional</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory>./../tests/Integration</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory>./../tests/Unit</directory>
+        </testsuite>
+    </testsuites>
+
+    <coverage cacheDirectory="./../.build/.phpunit.cache/code-coverage"
+              processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">./../src</directory>
+        </include>
+
+        <report>
+            <clover outputFile="./../.build/clover.xml" />
+            <xml outputDirectory="./../.build/.phpunit.cache/code-coverage/xml-coverage"/>
+        </report>
+    </coverage>
+
+    <logging>
+        <junit outputFile="./../.build/.phpunit.cache/code-coverage/junit.xml"/>
+    </logging>
+</phpunit>

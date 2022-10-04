@@ -1,0 +1,22 @@
+default:
+  extensions:
+    DVDoug\Behat\CodeCoverage\Extension:
+      filter:
+        include:
+          directories:
+            '%paths.base%/../src': ~
+      reports:
+        clover:
+          target: .build/behat/clover.xml
+        html:
+          target: .build/coverage-behat
+        text:
+          showColors: true
+  formatters:
+    pretty: true
+  suites:
+    default:
+      paths:
+        - "%paths.base%/../tests/Feature/Carrier"
+      contexts:
+        - ExtremelyDefensivePhp\Tests\Feature\Carrier\CarrierContext
